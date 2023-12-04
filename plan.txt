@@ -5,6 +5,8 @@ Item
     Nuke extends Item
     Delivery extends Item
 StoreFront Interface
-    StorefrontImplementation extends StoreFront
+    StorefrontImplementation implements StoreFront
 
+
+list of 
 
