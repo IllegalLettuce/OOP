@@ -1,9 +1,11 @@
+//----------IMPORTS--------------
+import java.util.ArrayList;
 /**
  * Superclass
  */
 public class Agent {
 
-    //Fields
+    //Fields, agentID is final to prevent it from being overwritten 
     private final int agentID;
 
     /**Constructor
