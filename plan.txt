@@ -1,5 +1,10 @@
 Agent
-Item extends Agent
-Nuke extends Item
-Dirty_Bomb extends Nuke
-User
+    User extends Agent
+    Item extends Agent
+Item
+    Nuke extends Item
+    Delivery extends Item
+StoreFront Interface
+    StorefrontImplementation extends StoreFront
+
+
