@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public final class StoreFrontImplementation implements StoreFront {
     private final ArrayList<User> usersList;
     private final ArrayList<Item> itemsList;
+    private final ArrayList<Order> ordersList;
     private static int nextID;
 
     public StoreFrontImplementation(){
@@ -48,7 +49,7 @@ public final class StoreFrontImplementation implements StoreFront {
 
 
     public int removeItem(int AgentID){
-        
+
     }
 
 
