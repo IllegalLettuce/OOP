@@ -24,6 +24,13 @@ public class User extends Agent{
     public String getName(){
         return this.name;
     }
+    /**
+     * 
+     * @return The orders of the User
+     */
+    public ArrayList<Order> getOrders(){
+        return this.activeOrders;
+    }
 
     /**
      * @return If the customer is valued

@@ -25,3 +25,11 @@ Load database
 Save to database
 
 
+
+User can buy Nuke
+User can buy Launch Item
+    User cannot launch nuke without launch Item
+    User cannot launch Nuke without Nuke
+    
+
+
