@@ -6,6 +6,7 @@ public class Agent {
 
     //Fields, agentID is final to prevent it from being overwritten 
     private final int agentID;
+    
 
     /**Constructor
      * Creates one instance of the Agent object

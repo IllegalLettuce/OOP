@@ -1,9 +1,11 @@
+import java.util.ArrayList;
+
 public class User extends Agent{
     private final String name;
     private boolean isValuedCustomer;
+    private final ArrayList<Order> activeOrders;
 
     /**
-     * 
      * @param AgentID - ID of the customer
      * @param name - The name of the customer
      * @param isValuedCustomer - If the customer is valued.
@@ -14,9 +16,9 @@ public class User extends Agent{
 
         //new customer cannot be valued
         this.isValuedCustomer = false;
+        this.activeOrders = new ArrayList<Order>();
     }
     /**
-     * 
      * @return Name of the customer
      */
     public String getName(){
@@ -24,7 +26,6 @@ public class User extends Agent{
     }
 
     /**
-     * 
      * @return If the customer is valued
      */
     public boolean getIsValuedCustomer(){
@@ -38,4 +39,27 @@ public class User extends Agent{
         this.isValuedCustomer = isValuedCustomer;
     }
 
+    /**
+     * Checks to see if the user is in the user list.
+     * Core concept taken from example application
+     * @param userID - Id of the user to check
+     * @param userList - List of users
+     * @return - the index of the user in the list, or (-1) if not found
+     */
+    public static int inUsersList(int userID, ArrayList<User> userList){
+        int result = -1;
+        Agent user = new Agent(userID);
+        int listSize = userList.size();
+        int index = 0;
+
+        while ((result == -1) && (index < listSize)){
+            if (user.equals(userList.get(index))){
+                result = index;
+            }
+            else{
+                index++;
+            }
+        }
+        return result;
+    }
 }

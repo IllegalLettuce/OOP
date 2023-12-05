@@ -8,5 +8,20 @@ StoreFront Interface
     StorefrontImplementation implements StoreFront
 
 
-list of 
+ 
+Exit
+Sell Item
+Launch Item
+View stock levels
+Add user
+Remove user
+Display all user info
+Add nuke Item
+Add delivery system Item
+Remove item
+Display all item infos
+Add valued customer
+Load database
+Save to database
+
 
