@@ -12,6 +12,7 @@ public final class StoreFrontImplementation implements StoreFront {
     public StoreFrontImplementation(){
         this.usersList = new ArrayList<User>();
         this.itemsList = new ArrayList<Item>();
+        this.ordersList = new ArrayList<Order>();
     }
 
     public int addUser(String name){
