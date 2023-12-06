@@ -9,7 +9,7 @@ public interface StoreFront {
     /**
      * Removes User
      * @param AgentID - the ID of the user to be removed
-     * @return 
+     * @return 0 if succesfully removed, -1 if user does not exist, -2 if it has active orders
      */
     int removeUser(int AgentID);
 
@@ -36,6 +36,11 @@ public interface StoreFront {
      */
     int addLaunch(String name, String originCountry, boolean activeService, int price, int range);
 
+    /**
+     * Removes Item from ItemList
+     * @param AgentID - ID of item to remove
+     * @return 0 if removed, -1 if in order
+     */
     int removeItem(int AgentID);
 
     int sellNuke();

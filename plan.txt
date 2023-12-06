@@ -32,4 +32,39 @@ User can buy Launch Item
     User cannot launch Nuke without Nuke
     
 
+Dollar Store Dictator
+
+    User(){
+        name
+        location
+        ArrayList<inventory>
+    }
+
+    Nuke(){
+        yield
+    }
+
+    DeliverySystem(){
+        range
+    }
+
+    order(){
+        transfer item to user inventory
+    }
+
+    Buy Nuke(){
+        add nuke selected to users inventory
+    }
+    Buy Delivery system(){
+        add delivery system to users inventory
+    }
+    
+    Launch Nuke (user, nukeId, DeliverySystemID){
+        if user has nuke and launch item
+        if launch system is in range
+        launch nuke - remove nuke and launch from user inventory 
+    }
+    
+
+
 

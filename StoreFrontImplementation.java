@@ -55,14 +55,13 @@ public final class StoreFrontImplementation implements StoreFront {
             this.itemsList.remove(index);
             result = 0;
         }
-        else{
-            result = -2;
-        }
         return result;
     }
 
     public int sellItem(int userID, int itemID ){
         int result = -1;
+
+
         
 
 
