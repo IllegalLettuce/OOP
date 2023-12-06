@@ -8,5 +8,13 @@ public final class ArtisanalNuke extends Nuke {
         this.size = size;
         this.colour = colour;
     }
+
+    public int getSize(){
+        return this.size;
+    }
+
+    public String getColour(){
+        return this.colour;
+    }
           
 }
