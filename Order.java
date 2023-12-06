@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Order {
     //fields
     private final int orderID;
@@ -36,10 +38,29 @@ public class Order {
     public int getItemID(){
         return this.itemID;
     }
+
     /**
      * 
-     * @return if the order is to be launched
+     * @param orderID - ID of the order to check
+     * @param orderList - List of orders
+     * @return the index of the order in the list, or (-1) if not found
      */
+    // public static int inOrdersList(int itemID, ArrayList<Order> orderList){
+    //     int result = -1;
+    //     Agent item = new Agent(itemID);
+    //     int listSize = orderList.size();
+    //     int index = 0;
+
+    //     while ((result == -1) && (index < listSize)){
+    //         if (item.equals(orderList.get(index))){
+    //             result = index;
+    //         }
+    //         else{
+    //             index++;
+    //         }
+    //     }
+    //     return result;
+    // }
 
 
     /**

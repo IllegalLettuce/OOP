@@ -48,9 +48,27 @@ public final class StoreFrontImplementation implements StoreFront {
         return result;
     }
 
-
     public int removeItem(int AgentID){
+        int result = -1;
+        int index = Item.inItemList(AgentID, itemsList); // verifies that the item exists in the item list
+        if (index != -1){
+            this.itemsList.remove(index);
+            result = 0;
+        }
+        else{
+            result = -2;
+        }
+        return result;
+    }
 
+    public int sellItem(int userID, int itemID ){
+        int result = -1;
+        
+
+
+
+
+        return result;
     }
 
 

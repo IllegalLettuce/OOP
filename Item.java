@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public abstract class Item extends Agent {
     //fields
     private final String name;
@@ -49,4 +51,27 @@ public abstract class Item extends Agent {
     public int getPrice(){
         return this.price;
     }  
+
+    /**
+     * Checks to see if the Item is in the Item list
+     * @param AgentID - ID of the item
+     * @param itemList - List of items
+     * @return the index of the user in the list, or (-1) if not found
+     */
+    public static int inItemList(int AgentID, ArrayList<Item> itemList){
+        int result = -1;
+        Agent item = new Agent(AgentID);
+        int listSize = itemList.size();
+        int index = 0;
+
+        while((result == -1) && (index < listSize)){
+            if (item.equals(itemList.get(index))){
+                result = index;
+            }
+            else{
+                index++;
+            }
+        }
+        return result;
+    }
 }
