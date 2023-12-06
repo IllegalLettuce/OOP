@@ -7,8 +7,6 @@ Item
 StoreFront Interface
     StorefrontImplementation implements StoreFront
 
-
- 
 Exit
 Sell Item
 Launch Item
@@ -24,27 +22,41 @@ Add valued customer
 Load database
 Save to database
 
-
-
 User can buy Nuke
 User can buy Launch Item
     User cannot launch nuke without launch Item
     User cannot launch Nuke without Nuke
-    
 
+User can buy Nuke
+Creates order logs which shows which users brought which items in csv file
+Item 
+
+
+----------------------------------------------------------------------------
 Dollar Store Dictator
+Buy, Sell, Launch Nukes!
 
-    User(){
+    User{
         name
-        location
-        ArrayList<inventory>
+        Location
+        ArrayList<inventory>q
     }
 
-    Nuke(){
+    Nuke{
         yield
     }
 
-    DeliverySystem(){
+    Distance(locationID, locationID){
+        haverside formula
+    }
+
+    Locations{
+        city
+        latitude
+        longitude
+    }
+
+    DeliverySystem{
         range
     }
 
@@ -65,6 +77,29 @@ Dollar Store Dictator
         launch nuke - remove nuke and launch from user inventory 
     }
     
+    csv file for Locations
+    csv file for user database
+    csv file for nukes
+    csv files for launch system
+-------------------------------------------------------------------------------------------
 
+Anthony's Artisanal Nukes!
+
+
+Customer{
+    name
+}
+
+Nuke{
+    yield
+}
+
+Stock{
+    nukeID, Amount
+}
+
+Order{
+    recipt of customer and the ordered nuke printed to csv file, -1 nuke in stock
+}
 
 
