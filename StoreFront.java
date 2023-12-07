@@ -7,7 +7,11 @@ public interface StoreFront {
      * @return if item has been purchased
      */
     boolean purchaseItem(int userID, int itemID);
-
+    /**
+     * Adds new customer/user
+     * @param name - name of user
+     * @return if customer has been added 
+     */
     boolean addNewCustomer(String name);
     /**
      * Adds new Crowbar to items list
@@ -39,4 +43,7 @@ public interface StoreFront {
      * Attempts to print the information in the receipts list
      */
     void viewSalesLog();
+
+
+    
 }

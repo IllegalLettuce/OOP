@@ -11,7 +11,7 @@ public class User extends Agent{
     public String getName(){
         return this.name;
     }
-
+    
     public static int isUserinList(int userID, ArrayList<User> list){
         int result = -1;
         Agent newAgent = new Agent(userID);
