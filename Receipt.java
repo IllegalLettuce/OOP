@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+
 public class Receipt {
     private int recieptID;
     private int userID;
@@ -27,9 +27,12 @@ public class Receipt {
         return this.itemID;
     }
 
-    
+    public String toString(){
+        String result;
 
+        result = "ReceiptID: " + getReceiptID() + " | UserID: " + getUserID() + " | ItemID: " + getItemID();
 
-
+        return result;
+    }
 
 }

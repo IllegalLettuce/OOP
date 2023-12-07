@@ -21,7 +21,7 @@ public class Item extends Agent {
      * @param list - the list to search
      * @return - Index of found item or (-1) if not found
      */
-    public static int isInItemList(int itemID, ArrayList<Item> list){
+    public static int isItemInList(int itemID, ArrayList<Item> list){
         int result = -1;
         Agent newAgent = new Agent(itemID);
         int listSize = list.size();
