@@ -87,8 +87,6 @@ public final class StoreFrontImplementation implements StoreFront {
             System.out.println(receipt.toString());
         }
     }
-
-    
     
     public boolean saveToDisk(String receiptFileName, String itemFileName, String userFileName){
         boolean result = false;
@@ -132,8 +130,6 @@ public final class StoreFrontImplementation implements StoreFront {
         return result;
     }
 
-
-
     public boolean loadFromDisk(String receiptFileName, String itemFileName, String userFileName ) {
 
         return ((this.loadItemsFromDisk(itemFileName)) &&
@@ -141,6 +137,7 @@ public final class StoreFrontImplementation implements StoreFront {
                 (this.loadUsersFromDisk(userFileName)));
 
     }
+    
     /**
      * 
      * @param receiptFileName
@@ -175,8 +172,6 @@ public final class StoreFrontImplementation implements StoreFront {
         }
         return result;
     }
-
-
 
     /**
      * Loads Item data from the database
@@ -219,7 +214,6 @@ public final class StoreFrontImplementation implements StoreFront {
         return result;
     }
 
-
     public boolean loadUsersFromDisk(String userFileName){
         boolean result = false;
         try{
@@ -248,20 +242,7 @@ public final class StoreFrontImplementation implements StoreFront {
         return result;
     }
 
-    
-    
-   
-
-
-
-
-
-
-
-
-
-
-
-}
+    //end of file
+} 
     
 
