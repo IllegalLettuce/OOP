@@ -145,10 +145,23 @@ public class MyMain {
 
                 case 1 -> {
                     System.out.println("====Purchase Item====");
-                    
+
                 }
                 case 2 -> {
                     System.out.println("====Add new Coffee====");
+                    System.out.println("Enter name for coffee:");
+                    String coffeeName = validString(scanner);
+                    System.out.println("Enter price for coffee:");
+                    int coffeePrice = validInt(scanner);
+                    System.out.println("Enter amount of sugar for coffee:");
+                    int coffeeSugarySpoons = validInt(scanner);
+                    System.out.println("Enter if coffee has milk:");
+                    boolean coffeeMilk = validBool(scanner);
+
+                    boolean result = store.addNewCoffee(coffeePrice, coffeeName, coffeeSugarySpoons, coffeeMilk);
+                    if (result){
+                        System.out.println("Coffee succesfully added");
+                    }
                 }
                 case 3 -> {
                     System.out.println("====Add new Crowbar====");
