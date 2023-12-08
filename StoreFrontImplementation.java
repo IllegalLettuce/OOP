@@ -134,8 +134,11 @@ public final class StoreFrontImplementation implements StoreFront {
 
 
 
-    public boolean loadFromDisk() {
-        return true;
+    public boolean loadFromDisk(String receiptFileName, String itemFileName, String userFileName ) {
+
+        return ((this.loadItemsFromDisk(itemFileName)) &&
+                (this.loadReceiptsFromDisk(receiptFileName)) &&
+                (this.loadUsersFromDisk(userFileName)));
 
     }
     /**

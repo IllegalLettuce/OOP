@@ -48,7 +48,7 @@ public interface StoreFront {
      * Loads content from the disk (User, Item and Receipts Lists) and appends to the lists
      * @return
      */
-    boolean loadFromDisk();
+    boolean loadFromDisk(String receiptFileName, String itemFileName, String userFileName );
 
     /**
      * Saves data to disk (User, Item and Receipts Lists)
