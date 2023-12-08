@@ -165,21 +165,45 @@ public class MyMain {
                 }
                 case 3 -> {
                     System.out.println("====Add new Crowbar====");
+                    System.out.println("Enter name for Crowbar");
+                    String crowbarName = validString(scanner);
+                    System.out.println("Enter price for Crowbar");
+                    int crowbarPrice = validInt(scanner);
+                    System.out.println("Enter weight for Crowbar in Grams");
+                    int crowbarWeight = validInt(scanner);
+                    System.out.println("Enter type of Crowbar");
+                    String crowbarType = validString(scanner);
+
+                    boolean result = store.addNewCrowbar(crowbarPrice, crowbarName, crowbarWeight, crowbarType);
+                    if (result){
+                        System.out.println("Crowbar succesfully added");
+                    }                    
                 }
                 case 4 -> {
                     System.out.println("====Add new Customer====");
+                    System.out.println("Enter name for Customer");
+                    String customerName = validString(scanner);
+                    boolean result = store.addNewCustomer(customerName);
+                    if (result){
+                        System.out.println("Customer succesfully added");
+                    }    
                 }
                 case 5 -> {
                     System.out.println("====View Product Info====");
+
                 }
                 case 6 -> {
                     System.out.println("====View Sales Log====");
+                    store.viewSalesLog();
+  
                 }
                 case 7 -> {
                     System.out.println("====Load data from disk====");
+                    store.loadFromDisk(receiptFileName, itemFileName, userFileName);
                 }
                 case 8 -> {
                     System.out.println("====Save data to disk====");
+                    store.saveToDisk(receiptFileName, itemFileName, userFileName);
                 }
                     
             }

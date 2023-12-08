@@ -19,6 +19,7 @@ public final class StoreFrontImplementation implements StoreFront {
         this.receiptsList = new ArrayList<Receipt>();
     }
     
+
     public boolean purchaseItem(int userID, int itemID) {
         boolean result = false;
         int recieptID = StoreFrontImplementation.nextID;
@@ -49,7 +50,7 @@ public final class StoreFrontImplementation implements StoreFront {
         result = true;
         return result;
     }
-
+    
     public boolean addNewCrowbar(int price, String name, int weight, String type){
         boolean result;
         int crowbarID = StoreFrontImplementation.nextID;
@@ -137,7 +138,7 @@ public final class StoreFrontImplementation implements StoreFront {
     }
     
     /**
-     * 
+     * Loads receipt data from database
      * @param receiptFileName
      * @return If receipts have been loaded to the receiptsList
      */
@@ -211,7 +212,11 @@ public final class StoreFrontImplementation implements StoreFront {
         }
         return result;
     }
-
+    /**
+     * Loads all users from the users database and adds to userslists
+     * @param userFileName - file name of users database
+     * @return - if succesfully addded
+     */
     public boolean loadUsersFromDisk(String userFileName){
         boolean result = false;
         try{

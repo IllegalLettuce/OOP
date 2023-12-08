@@ -30,7 +30,7 @@ public class User extends Agent{
 
     public String toString(){
         String result;
-        result = "" + getName() + "" + getID();
+        result = "" + getName() + "\t" + getID();
         return result;
     }
 }
