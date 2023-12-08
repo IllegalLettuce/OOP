@@ -158,7 +158,7 @@ public final class StoreFrontImplementation implements StoreFront {
                     int itemID = scanner.nextInt();
 
                     if (receiptID >= StoreFrontImplementation.nextID){
-                        StoreFrontImplementation.nextID++;
+                        StoreFrontImplementation.nextID = receiptID+1;
                     }
                     Receipt newReceipt = new Receipt(receiptID, userID, itemID);  
                     this.receiptsList.add(newReceipt);
@@ -176,9 +176,9 @@ public final class StoreFrontImplementation implements StoreFront {
 
 
     /**
-     * 
-     * @param itemFileName
-     * @return
+     * Loads Item data from the database
+     * @param itemFileName - file name of the items database
+     * @return If succesfully loaded
      */
     public boolean loadItemsFromDisk(String itemFileName){
         boolean result = false;
@@ -217,22 +217,27 @@ public final class StoreFrontImplementation implements StoreFront {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     public boolean loadUsersFromDisk(String userFileName){
         boolean result = false;
         try{
+            File usersFile = new File(userFileName);
+            Scanner scanner = new Scanner(usersFile);
 
+            if (scanner.hasNext()){
+                int userSize = scanner.nextInt();
+                
+                for (int index = 0; index < userSize; index++){
+                    String userName = scanner.next();
+                    int userId = scanner.nextInt();
+                    if (userId >= StoreFrontImplementation.nextID){
+                        StoreFrontImplementation.nextID = userId+1;
+                    }
+                    User newUser = new User(userId, userName);
+                    this.usersList.add(newUser);
+                }
+            }
+            scanner.close();
+            result = true;
         }
         catch (Exception e){
             System.out.println("There was an error loading data from "  + userFileName);
