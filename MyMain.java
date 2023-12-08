@@ -8,6 +8,7 @@ public class MyMain {
      * This function prints the menu on screen to the user
      */
     public static void printMenu(){
+        System.out.println();
         System.out.println("0. Exit");
         System.out.println("1. Purchase Item");
         System.out.println("2. Add new Coffee");
@@ -121,7 +122,7 @@ public class MyMain {
 
     public static void cleanScreen(){
        for (int i = 0; i < 100; i++){
-        System.out.print("");
+        System.out.println(" ");
         }
     }
     
@@ -138,7 +139,7 @@ public class MyMain {
         while (!endProgram){
             printMenu();
             option = validInt(scanner, 0, 8);
-
+            cleanScreen();
             switch (option) {
                 case 0 -> endProgram = true;
 
@@ -193,7 +194,6 @@ public class MyMain {
                 }
                 case 4 -> {
                     System.out.println("====View Product Info====");
-                    System.out.print("Enter Item ID");
                     int itemPick = validInt(scanner);
                     store.viewItemInfo(itemPick);
                 }
@@ -224,10 +224,9 @@ public class MyMain {
 
 
     public static void main(String[] args){
-        String receiptFileName = "/database/receipt.txt";
-        String itemFileName = "/database/item.txt";
-        String userFileName = "/database/user.txt";
-        System.out.println("Welcome to Crowbars and Coffee! ");
+        String receiptFileName = "./database/receipt.txt";
+        String itemFileName = "./database/item.txt";
+        String userFileName = "./database/user.txt";
         session(receiptFileName, itemFileName, userFileName);
     }
 }

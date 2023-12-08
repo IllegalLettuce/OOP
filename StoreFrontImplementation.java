@@ -137,6 +137,7 @@ public final class StoreFrontImplementation implements StoreFront {
         }
         catch (Exception e){
             System.out.println("Error when writing to file");
+            System.out.println(e);
         }
         return result;
     }
