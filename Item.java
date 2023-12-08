@@ -15,6 +15,14 @@ public class Item extends Agent {
     public String getName(){
         return this.name;
     }
+
+    public String toString(){
+        String result = "";
+        result = "" + this.getID() + "\t" +
+                    this.getName() + "\t" +
+                    this.getPrice();
+        return result;
+    }
     /**
      * Attempts to find item in the list - core concept take from example application
      * @param itemID - ID of the item

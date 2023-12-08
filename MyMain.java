@@ -12,11 +12,10 @@ public class MyMain {
         System.out.println("1. Purchase Item");
         System.out.println("2. Add new Coffee");
         System.out.println("3. Add new Crowbar");
-        System.out.println("4. Add new customer");
-        System.out.println("5. View Item info");
-        System.out.println("6. View Sales Log");
-        System.out.println("7. Load data from Disk");
-        System.out.println("8. Save data to disk");
+        System.out.println("4. View Item info");
+        System.out.println("5. View Sales Log");
+        System.out.println("6. Load data from Disk");
+        System.out.println("7. Save data to disk");
     }
     /**
      * Validation for integer option.
@@ -145,7 +144,20 @@ public class MyMain {
 
                 case 1 -> {
                     System.out.println("====Purchase Item====");
-
+                    System.out.println("Enter name for Customer");
+                    String customerName = validString(scanner);
+                    int customerID = store.addNewCustomer(customerName);
+                    System.out.println("Select product for " + customerName);
+                    store.viewProductList();
+                    System.out.println("\nEnter product ID:");
+                    int choice = scanner.nextInt();
+                    boolean receiptresult = store.purchaseItem(customerID, choice);
+                    if (receiptresult){
+                        System.out.println("Item succesfully purchased");
+                    }
+                    else{
+                        System.out.println("Error");
+                    }
                 }
                 case 2 -> {
                     System.out.println("====Add new Coffee====");
@@ -180,28 +192,20 @@ public class MyMain {
                     }                    
                 }
                 case 4 -> {
-                    System.out.println("====Add new Customer====");
-                    System.out.println("Enter name for Customer");
-                    String customerName = validString(scanner);
-                    boolean result = store.addNewCustomer(customerName);
-                    if (result){
-                        System.out.println("Customer succesfully added");
-                    }    
+                    System.out.println("====View Product Info====");
+                    System.out.print("Enter Item ID");
+                    int itemPick = validInt(scanner);
+                    store.viewItemInfo(itemPick);
                 }
                 case 5 -> {
-                    System.out.println("====View Product Info====");
-
-                }
-                case 6 -> {
                     System.out.println("====View Sales Log====");
                     store.viewSalesLog();
-  
                 }
-                case 7 -> {
+                case 6 -> {
                     System.out.println("====Load data from disk====");
                     store.loadFromDisk(receiptFileName, itemFileName, userFileName);
                 }
-                case 8 -> {
+                case 7 -> {
                     System.out.println("====Save data to disk====");
                     store.saveToDisk(receiptFileName, itemFileName, userFileName);
                 }

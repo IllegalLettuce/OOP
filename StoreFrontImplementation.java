@@ -24,7 +24,7 @@ public final class StoreFrontImplementation implements StoreFront {
         boolean result = false;
         int recieptID = StoreFrontImplementation.nextID;
         StoreFrontImplementation.nextID++;
-
+  
         int itemIndex = Item.isItemInList(itemID, itemsList);
         if (itemIndex == -1){
             System.out.println("No Item with ID: " + itemID );
@@ -41,14 +41,12 @@ public final class StoreFrontImplementation implements StoreFront {
         return result;
     }
 
-    public boolean addNewCustomer(String name){
-        boolean result;
+    public int addNewCustomer(String name){
         int userID = StoreFrontImplementation.nextID;
         StoreFrontImplementation.nextID++;
         User newUser = new User(userID, name);
         this.usersList.add(newUser);
-        result = true;
-        return result;
+        return userID;
     }
     
     public boolean addNewCrowbar(int price, String name, int weight, String type){
@@ -89,6 +87,18 @@ public final class StoreFrontImplementation implements StoreFront {
         }
     }
     
+    
+    public int viewProductList(){
+        int result = this.itemsList.size();
+        System.out.println("Product List");
+        System.out.println("ID" + "\t" + "Name" + "\t" + "Price");
+        for(int index = 0; index < result; index++){
+            Item product = this.itemsList.get(index);
+            product.toString();
+        }
+        return result;
+    }
+
     public boolean saveToDisk(String receiptFileName, String itemFileName, String userFileName){
         boolean result = false;
         PrintWriter receiptsPrintWriter;

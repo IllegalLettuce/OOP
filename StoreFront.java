@@ -10,9 +10,9 @@ public interface StoreFront {
     /**
      * Adds new customer/user
      * @param name - name of user
-     * @return if customer has been added 
+     * @return id of new customer 
      */
-    boolean addNewCustomer(String name);
+    int addNewCustomer(String name);
     /**
      * Adds new Crowbar to items list
      * @param price - price of crowbar in Euro
@@ -43,6 +43,11 @@ public interface StoreFront {
      * Attempts to print the information in the receipts list
      */
     void viewSalesLog();
+
+    /**
+     * Displays product Lists and returns size of product list
+     */
+    public int viewProductList();
 
     /**
      * Loads content from the disk (User, Item and Receipts Lists) and appends to the lists
