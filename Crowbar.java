@@ -11,7 +11,7 @@ public class Crowbar extends Item{
      * @param type - Type of Crowbar
      */
     public Crowbar(int AgentID, int price, String name, int weight, String type){
-        super(AgentID, price, name);
+        super(AgentID, name, price);
         this.weight = weight;
         this.type = type;
     }
@@ -29,5 +29,15 @@ public class Crowbar extends Item{
      */
     public String getType(){
         return this.type;
+    }
+
+    public String toString(){
+        String result;
+        result = "" + this.getID() + "\t" +
+                this.getName() + "\t" +
+                this.getPrice()  + "\t" + 
+                this.getWeight() + "\t" + 
+                this.getType();
+        return result;
     }
 }

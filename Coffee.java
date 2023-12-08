@@ -9,8 +9,8 @@ public class Coffee extends Item{
      * @param sugarySpoons - How many spoons of sugar in the Coffee
      * @param milk - IF the Coffee has milk
      */
-    public Coffee(int AgentID, int price, String name, int sugarySpoons, boolean milk){
-        super(AgentID, price, name);
+    public Coffee(int AgentID, int price, String name, boolean milk, int sugarySpoons){
+        super(AgentID, name, price);
         this.milk = milk;
         this.sugarySpoons = sugarySpoons;
     }
@@ -29,7 +29,7 @@ public class Coffee extends Item{
                     this.getName() + "\t" +
                     this.getPrice() + "\t" +
                     this.getMilk() + "\t" +
-                    this.getSugarySpoons()+ "\t";
+                    this.getSugarySpoons();
         return result;
     }
 }

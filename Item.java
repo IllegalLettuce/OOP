@@ -2,7 +2,7 @@ import java.util.ArrayList;
 public class Item extends Agent {
     private String name;
     private int price;
-    public Item(int AgentID,int price, String name){
+    public Item(int AgentID, String name, int price){
         super(AgentID);
         this.price = price;
         this.name = name;

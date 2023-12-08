@@ -64,7 +64,7 @@ public final class StoreFrontImplementation implements StoreFront {
         boolean result;
         int coffeeID = StoreFrontImplementation.nextID;
         StoreFrontImplementation.nextID++;
-        Coffee newCoffee = new Coffee(coffeeID, price, name, sugarySpoons, milk);
+        Coffee newCoffee = new Coffee(coffeeID, price, name, milk, sugarySpoons);
         this.itemsList.add(newCoffee);
         result = true;
         return result;
@@ -88,6 +88,8 @@ public final class StoreFrontImplementation implements StoreFront {
         }
     }
 
+    
+    
     public boolean saveToDisk(String receiptFileName, String itemFileName, String userFileName){
         boolean result = false;
         PrintWriter receiptsPrintWriter;
@@ -99,18 +101,19 @@ public final class StoreFrontImplementation implements StoreFront {
             itemPrintWriter = new PrintWriter(itemFileName, StandardCharsets.UTF_8);
             userPrintWriter = new PrintWriter(userFileName, StandardCharsets.UTF_8);
 
+            receiptsPrintWriter.println(this.receiptsList.size());
             for (int index = 0; index < this.receiptsList.size(); index++){
                 Receipt _receipt = this.receiptsList.get(index);
                 String data = _receipt.toString();
                 receiptsPrintWriter.print(data);
             }
-
+            itemPrintWriter.println(this.itemsList.size());
             for (int index = 0; index < this.itemsList.size(); index++){
                 Item _item = this.itemsList.get(index);
                 String data = _item.toString();
                 itemPrintWriter.print(data);
             }
-
+            userPrintWriter.println(this.usersList.size());
             for (int index = 0; index < this.usersList.size(); index++){
                 User _user = this.usersList.get(index);
                 String data = _user.toString();
@@ -128,6 +131,116 @@ public final class StoreFrontImplementation implements StoreFront {
         }
         return result;
     }
+
+
+
+    public boolean loadFromDisk() {
+        return true;
+
+    }
+    /**
+     * 
+     * @param receiptFileName
+     * @return If receipts have been loaded to the receiptsList
+     */
+    public boolean loadReceiptsFromDisk(String receiptFileName){
+        boolean result = false;
+        try{
+            File receiptsFile = new File(receiptFileName);
+            Scanner scanner = new Scanner(receiptsFile);
+
+            if (scanner.hasNext()){
+                int receiptDataSize = scanner.nextInt();
+
+                for (int index = 0; index < receiptDataSize; index++){
+                    int receiptID = scanner.nextInt();
+                    int userID = scanner.nextInt();
+                    int itemID = scanner.nextInt();
+
+                    if (receiptID >= StoreFrontImplementation.nextID){
+                        StoreFrontImplementation.nextID++;
+                    }
+                    Receipt newReceipt = new Receipt(receiptID, userID, itemID);  
+                    this.receiptsList.add(newReceipt);
+                }
+            }
+            scanner.close();
+            result = true;
+        }
+        catch (Exception e){
+            System.out.println("There was an error loading data from "  + receiptFileName);
+        }
+        return result;
+    }
+
+
+
+    /**
+     * 
+     * @param itemFileName
+     * @return
+     */
+    public boolean loadItemsFromDisk(String itemFileName){
+        boolean result = false;
+        try{
+            File itemFile = new File(itemFileName);
+            Scanner scanner = new Scanner(itemFile);
+
+            if (scanner.hasNext()){
+                int itemSize = scanner.nextInt();
+                
+                for (int index = 0; index < itemSize; index++){
+                    Item newItem;
+                    int itemID = scanner.nextInt();
+                    String itemName = scanner.next();
+                    int itemprice = scanner.nextInt();
+                    if (scanner.hasNextBoolean()){    //if its coffee it will have boolean milk
+                        boolean coffeeMilk = scanner.nextBoolean();
+                        int coffeeSugarySpoons = scanner.nextInt();
+                        newItem = new Coffee(itemID, itemprice, itemName, coffeeMilk, coffeeSugarySpoons);
+                    }
+                    else { //its a crowbar
+                        int crowbarWeight = scanner.nextInt();
+                        String crowbarType = scanner.next();
+                        newItem = new Crowbar(itemID, itemprice, itemName, crowbarWeight, crowbarType);
+                    }
+                    this.itemsList.add(newItem);
+                }
+            }
+            scanner.close();
+            result = true;
+        }
+        catch (Exception e){
+            System.out.println("There was an error loading data from "  + itemFileName);
+        }
+        return result;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public boolean loadUsersFromDisk(String userFileName){
+        boolean result = false;
+        try{
+
+        }
+        catch (Exception e){
+            System.out.println("There was an error loading data from "  + userFileName);
+        }
+        return result;
+    }
+
+    
     
    
 
