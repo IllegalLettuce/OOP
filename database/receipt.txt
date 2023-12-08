@@ -1,2 +1,0 @@
-1
-ReceiptID: 4 | UserID: 3 | ItemID: 1

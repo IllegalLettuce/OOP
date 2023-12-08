@@ -206,7 +206,9 @@ public final class StoreFrontImplementation implements StoreFront {
                     int itemID = scanner.nextInt();
                     String itemName = scanner.next();
                     int itemprice = scanner.nextInt();
-
+                    if (itemID >= StoreFrontImplementation.nextID){
+                        StoreFrontImplementation.nextID = itemID+1;
+                    }
                     if (scanner.hasNextBoolean()){    //if its coffee it will have boolean milk
                         boolean coffeeMilk = scanner.nextBoolean();
                         int coffeeSugarySpoons = scanner.nextInt();

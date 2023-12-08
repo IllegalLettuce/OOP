@@ -1,2 +1,0 @@
-3
-1	Americano	4	true	21	Latte	3	true	12	Flatwhite	6	true	8

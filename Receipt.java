@@ -29,9 +29,9 @@ public class Receipt {
 
     public String toString(){
         String result;
-
-        result = "ReceiptID: " + getReceiptID() + " | UserID: " + getUserID() + " | ItemID: " + getItemID();
-
+        result = "\t" + getReceiptID() + "\t" +
+                        getUserID() + "\t" + 
+                        getItemID()+ "\t";
         return result;
     }
 
