@@ -44,6 +44,8 @@ public interface StoreFront {
      */
     void viewSalesLog();
 
-
-    
+    /**
+     * Saves data to disk (User, Item and Receipts Lists)
+     */
+    boolean saveToDisk(String receiptFileName, String itemFileName, String userFileName);
 }

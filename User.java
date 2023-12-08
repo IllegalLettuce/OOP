@@ -27,4 +27,10 @@ public class User extends Agent{
         }
         return result;
     }
+
+    public String toString(){
+        String result;
+        result = "" + getName() + "" + getID();
+        return result;
+    }
 }

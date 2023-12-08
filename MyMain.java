@@ -13,7 +13,7 @@ public class MyMain {
         System.out.println("4. Add new customer");
         System.out.println("5. View Item info");
         System.out.println("6. View Sales Log");
-        System.out.println("7. Load sales from Disk");
+        System.out.println("7. Load data from Disk");
         System.out.println("8. Save data to disk");
     }
 

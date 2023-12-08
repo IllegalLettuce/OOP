@@ -1,5 +1,9 @@
-
+//imports
+import java.io.File;
+import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
 public final class StoreFrontImplementation implements StoreFront {
@@ -82,6 +86,47 @@ public final class StoreFrontImplementation implements StoreFront {
         for (Receipt receipt : this.receiptsList){
             System.out.println(receipt.toString());
         }
+    }
+
+    public boolean saveToDisk(String receiptFileName, String itemFileName, String userFileName){
+        boolean result = false;
+        PrintWriter receiptsPrintWriter;
+        PrintWriter itemPrintWriter;
+        PrintWriter userPrintWriter;
+
+        try {
+            receiptsPrintWriter = new PrintWriter(receiptFileName, StandardCharsets.UTF_8);
+            itemPrintWriter = new PrintWriter(itemFileName, StandardCharsets.UTF_8);
+            userPrintWriter = new PrintWriter(userFileName, StandardCharsets.UTF_8);
+
+            for (int index = 0; index < this.receiptsList.size(); index++){
+                Receipt _receipt = this.receiptsList.get(index);
+                String data = _receipt.toString();
+                receiptsPrintWriter.print(data);
+            }
+
+            for (int index = 0; index < this.itemsList.size(); index++){
+                Item _item = this.itemsList.get(index);
+                String data = _item.toString();
+                itemPrintWriter.print(data);
+            }
+
+            for (int index = 0; index < this.usersList.size(); index++){
+                User _user = this.usersList.get(index);
+                String data = _user.toString();
+                userPrintWriter.print(data);
+            }
+
+            receiptsPrintWriter.close();
+            itemPrintWriter.close();
+            userPrintWriter.close();
+            
+            result = true;
+        }
+        catch (Exception e){
+            System.out.println("Error when writing to file");
+        }
+        return result;
     }
     
    
