@@ -33,11 +33,11 @@ public class Crowbar extends Item{
 
     public String toString(){
         String result;
-        result = "" + this.getID() + "\t" +
+        result = "\t" + this.getID() + "\t" +
                 this.getName() + "\t" +
                 this.getPrice()  + "\t" + 
                 this.getWeight() + "\t" + 
-                this.getType();
+                this.getType()+ "\t";
         return result;
     }
 }

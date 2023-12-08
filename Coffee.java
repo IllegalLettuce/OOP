@@ -25,11 +25,11 @@ public class Coffee extends Item{
 
     public String toString(){
         String result;
-        result = "" + this.getID() + "\t" +
+        result = "\t" + this.getID() + "\t" +
                     this.getName() + "\t" +
                     this.getPrice() + "\t" +
                     this.getMilk() + "\t" +
-                    this.getSugarySpoons();
+                    this.getSugarySpoons()+ "\t";
         return result;
     }
 }

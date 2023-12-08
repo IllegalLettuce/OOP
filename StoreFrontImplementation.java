@@ -82,8 +82,12 @@ public final class StoreFrontImplementation implements StoreFront {
     }
 
     public void viewSalesLog(){
-        for (Receipt receipt : this.receiptsList){
-            System.out.println(receipt.toString());
+        int size = this.receiptsList.size();
+        System.out.println("Sales Log");
+        System.out.println("Receipt ID" + "\t" +"User ID" + "\t" + "Product ID");
+        for (int index = 0; index < size; index++){
+            Receipt log = this.receiptsList.get(index);
+            System.out.println("" + log.getReceiptID()+ "\t" + log.getUserID() + "\t" + log.getItemID());
         }
     }
     
@@ -94,7 +98,7 @@ public final class StoreFrontImplementation implements StoreFront {
         System.out.println("ID" + "\t" + "Name" + "\t" + "Price");
         for(int index = 0; index < result; index++){
             Item product = this.itemsList.get(index);
-            product.toString();
+            System.out.println("" + product.getID() + "\t" + product.getName()+ "\t" +product.getPrice());
         }
         return result;
     }
@@ -202,6 +206,7 @@ public final class StoreFrontImplementation implements StoreFront {
                     int itemID = scanner.nextInt();
                     String itemName = scanner.next();
                     int itemprice = scanner.nextInt();
+
                     if (scanner.hasNextBoolean()){    //if its coffee it will have boolean milk
                         boolean coffeeMilk = scanner.nextBoolean();
                         int coffeeSugarySpoons = scanner.nextInt();
@@ -220,6 +225,7 @@ public final class StoreFrontImplementation implements StoreFront {
         }
         catch (Exception e){
             System.out.println("There was an error loading data from "  + itemFileName);
+            System.out.println(e);
         }
         return result;
     }

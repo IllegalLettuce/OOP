@@ -18,9 +18,9 @@ public class Item extends Agent {
 
     public String toString(){
         String result = "";
-        result = "" + this.getID() + "\t" +
+        result = "\t" + this.getID() + "\t" +
                     this.getName() + "\t" +
-                    this.getPrice();
+                    this.getPrice() + "\t";
         return result;
     }
     /**
