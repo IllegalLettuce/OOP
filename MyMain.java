@@ -97,7 +97,7 @@ public class MyMain {
         }
         return result;
     }
-    
+
     /**
      * Valiadates boolean entry
      * @param scanner - scanner
@@ -119,17 +119,60 @@ public class MyMain {
         }
         return result;
     }
+
+    public static void cleanScreen(){
+       for (int i = 0; i < 100; i++){
+        System.out.print("");
+        }
+    }
     
 
     public static void session(String receiptFileName, String itemFileName, String userFileName){
         StoreFront store = new StoreFrontImplementation();
 
         boolean endProgram = false;
-        
+        int option;
+        Scanner scanner = new Scanner(System.in);
+
+        cleanScreen();
+
         while (!endProgram){
+            printMenu();
+            option = validInt(scanner, 0, 8);
+
+            switch (option) {
+                case 0 -> endProgram = true;
+
+                case 1 -> {
+                    System.out.println("====Purchase Item====");
+                    
+                }
+                case 2 -> {
+                    System.out.println("====Add new Coffee====");
+                }
+                case 3 -> {
+                    System.out.println("====Add new Crowbar====");
+                }
+                case 4 -> {
+                    System.out.println("====Add new Customer====");
+                }
+                case 5 -> {
+                    System.out.println("====View Product Info====");
+                }
+                case 6 -> {
+                    System.out.println("====View Sales Log====");
+                }
+                case 7 -> {
+                    System.out.println("====Load data from disk====");
+                }
+                case 8 -> {
+                    System.out.println("====Save data to disk====");
+                }
+                    
+            }
             
         }
-    };  
+    }
 
 
 
@@ -140,10 +183,10 @@ public class MyMain {
 
 
     public static void main(String[] args){
-
+        String receiptFileName = "/database/receipt.txt";
+        String itemFileName = "/database/item.txt";
+        String userFileName = "/database/user.txt";
         System.out.println("Welcome to Crowbars and Coffee! ");
-        
-
-
+        session(receiptFileName, itemFileName, userFileName);
     }
 }
