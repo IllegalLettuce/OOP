@@ -1,3 +1,6 @@
+/**
+ * Class to model a crowbar
+ */
 public class Crowbar extends Item{
     private int weight;
     private String type;
@@ -31,6 +34,9 @@ public class Crowbar extends Item{
         return this.type;
     }
 
+    /**
+     * Overides tostring methods
+     */
     public String toString(){
         String result;
         result = "\t" + this.getID() + "\t" +

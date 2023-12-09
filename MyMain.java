@@ -126,7 +126,12 @@ public class MyMain {
         }
     }
     
-
+    /**
+     * The session manager
+     * @param receiptFileName - file name for recipt
+     * @param itemFileName - file name for items
+     * @param userFileName - file name for user
+     */
     public static void session(String receiptFileName, String itemFileName, String userFileName){
         StoreFront store = new StoreFrontImplementation();
 
@@ -214,13 +219,6 @@ public class MyMain {
             
         }
     }
-
-
-
-
-
-
-
 
 
     public static void main(String[] args){

@@ -1,4 +1,6 @@
-
+/**
+ * Models receipt class
+ */
 public class Receipt {
     private int recieptID;
     private int userID;
@@ -15,18 +17,33 @@ public class Receipt {
         this.recieptID = recieptID;
     }
 
+    /**
+     * 
+     * @return receipt ID
+     */
     public int getReceiptID(){
         return this.recieptID;
     }
 
+    /**
+     * 
+     * @return user ID
+     */
     public int getUserID(){
         return this.userID;
     }
 
+    /**
+     * 
+     * @return Item ID
+     */
     public int getItemID(){
         return this.itemID;
     }
 
+    /**
+     * Overides to string methods
+     */
     public String toString(){
         String result;
         result = "\t" + getReceiptID() + "\t" +

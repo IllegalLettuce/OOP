@@ -1,3 +1,6 @@
+/**
+ * Class to model a Coffee
+ */
 public class Coffee extends Item{
     private int sugarySpoons;
     private boolean milk;
@@ -14,15 +17,25 @@ public class Coffee extends Item{
         this.milk = milk;
         this.sugarySpoons = sugarySpoons;
     }
-    
+    /**
+     * 
+     * @return amount of sugary spoons in the coffee
+     */
     public int getSugarySpoons(){
         return this.sugarySpoons;
     }
 
+    /**
+     * 
+     * @return if the coffee has milk in it
+     */
     public boolean getMilk(){
         return this.milk;
     }
 
+    /**
+     * Overides toString method
+     */
     public String toString(){
         String result;
         result = "\t" + this.getID() + "\t" +

@@ -1,4 +1,7 @@
 import java.util.ArrayList;
+/**
+ * Models an item
+ */
 public class Item extends Agent {
     private String name;
     private int price;
@@ -8,14 +11,25 @@ public class Item extends Agent {
         this.name = name;
     }
 
+    /**
+     * 
+     * @return price of Item
+     */
     public int getPrice(){
         return this.price;
     }
 
+    /**
+     * 
+     * @return name of Item
+     */
     public String getName(){
         return this.name;
     }
 
+    /**
+     * Overidse tostring
+     */
     public String toString(){
         String result = "";
         result = "\t" + this.getID() + "\t" +
