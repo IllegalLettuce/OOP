@@ -244,10 +244,9 @@ public final class StoreFrontImplementation implements StoreFront {
         try{
             File itemFile = new File(itemFileName);
             Scanner scanner = new Scanner(itemFile);
-
             if (scanner.hasNext()){
-                int itemSize = scanner.nextInt();
                 
+                int itemSize = scanner.nextInt();
                 for (int index = 0; index < itemSize; index++){
                     Crowbar newCrowbar;
                     Coffee newCofffee;
