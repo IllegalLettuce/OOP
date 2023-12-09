@@ -45,18 +45,26 @@ public interface StoreFront {
     void viewSalesLog();
 
     /**
-     * Displays product Lists and returns size of product list
+     * Attempts to print the product list
+     * @return amount of products
      */
     public int viewProductList();
 
     /**
-     * Loads content from the disk (User, Item and Receipts Lists) and appends to the lists
-     * @return
+     * Loads data from disk
+     * @param receiptFileName - file path for receipts
+     * @param itemFileName - file path for item
+     * @param userFileName - file path for users
+     * @return if succesfull
      */
     boolean loadFromDisk(String receiptFileName, String itemFileName, String userFileName );
 
     /**
-     * Saves data to disk (User, Item and Receipts Lists)
+     * Save data to disk
+     * @param receiptFileName - file path for receipts
+     * @param itemFileName - file path for item
+     * @param userFileName - file path for users
+     * @return if succesfull
      */
     boolean saveToDisk(String receiptFileName, String itemFileName, String userFileName);
 }

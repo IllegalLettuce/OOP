@@ -20,6 +20,13 @@ public final class StoreFrontImplementation implements StoreFront {
     }
     
 
+    
+    /** 
+     * Purchases Item and creates receipt
+     * @param userID - ID of customer
+     * @param itemID - ID of item
+     * @return boolean
+     */
     public boolean purchaseItem(int userID, int itemID) {
         boolean result = false;
         int recieptID = StoreFrontImplementation.nextID;
@@ -41,6 +48,11 @@ public final class StoreFrontImplementation implements StoreFront {
         return result;
     }
 
+    /**
+     * adds new customer
+     * @param name - name of customer
+     * @return user ID of new customer
+     */
     public int addNewCustomer(String name){
         int userID = StoreFrontImplementation.nextID;
         StoreFrontImplementation.nextID++;
@@ -49,6 +61,15 @@ public final class StoreFrontImplementation implements StoreFront {
         return userID;
     }
     
+    
+    /** 
+     * Creates new crowbar object
+     * @param price - price of crowbar
+     * @param name - name of crowbar
+     * @param weight - weight of crowbar in grams
+     * @param type - type of crowbar
+     * @return if succesfull
+     */
     public boolean addNewCrowbar(int price, String name, int weight, String type){
         boolean result;
         int crowbarID = StoreFrontImplementation.nextID;
@@ -59,6 +80,15 @@ public final class StoreFrontImplementation implements StoreFront {
         return result;
     }
 
+
+    /**
+     * Adds new Coffee to items list
+     * @param price - price of the coffee
+     * @param name - name of the coffee
+     * @param sugarySpoons - amount of sugars in coffee
+     * @param milk - with or without milk
+     * @return - IF succesfully added
+     */
     public boolean addNewCoffee(int price, String name, int sugarySpoons, boolean milk){
         boolean result;
         int coffeeID = StoreFrontImplementation.nextID;
@@ -69,6 +99,10 @@ public final class StoreFrontImplementation implements StoreFront {
         return result;
     }
 
+    /**
+     * Attempts to print the Item info to screen
+     * @param AgentID - ID of the item
+     */
     public void viewItemInfo(int AgentID){
         int index = Item.isItemInList(AgentID, itemsList);
         if (index != -1){
@@ -81,6 +115,9 @@ public final class StoreFrontImplementation implements StoreFront {
         }
     }
 
+    /**
+     * Attempts to print the information in the receipts list
+     */
     public void viewSalesLog(){
         int size = this.receiptsList.size();
         System.out.println("Sales Log");
@@ -91,7 +128,10 @@ public final class StoreFrontImplementation implements StoreFront {
         }
     }
     
-    
+    /**
+     * Attempts to print the product list
+     * @return amount of products
+     */
     public int viewProductList(){
         int result = this.itemsList.size();
         System.out.println("Product List");
@@ -103,6 +143,13 @@ public final class StoreFrontImplementation implements StoreFront {
         return result;
     }
 
+    /**
+     * Saves data to disk
+     * @param receiptFileName - Name of receipt file
+     * @param itemFileName - name of item file
+     * @param userFileName - name of customer file
+     * @return if succesful
+     */
     public boolean saveToDisk(String receiptFileName, String itemFileName, String userFileName){
         boolean result = false;
         PrintWriter receiptsPrintWriter;
@@ -146,6 +193,13 @@ public final class StoreFrontImplementation implements StoreFront {
         return result;
     }
 
+    /**
+     * Loads data from disk
+     * @param receiptFileName - file path for receipts
+     * @param itemFileName - file path for item
+     * @param userFileName - file path for users
+     * @return if succesfull
+     */
     public boolean loadFromDisk(String receiptFileName, String itemFileName, String userFileName ) {
         return ((this.loadItemsFromDisk(itemFileName)) &&
                 (this.loadReceiptsFromDisk(receiptFileName)) &&
