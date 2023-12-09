@@ -2,8 +2,8 @@
  * Class to model a Coffee
  */
 public class Coffee extends Item{
-    private int sugarySpoons;
-    private boolean milk;
+    private final int sugarySpoons;
+    private final boolean milk;
     /**
      * Creates new Coffee Object
      * @param AgentID - ID of Coffee

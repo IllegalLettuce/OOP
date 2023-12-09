@@ -2,7 +2,7 @@ import java.util.ArrayList;
 /**
  * Models an item
  */
-public class Item extends Agent {
+public abstract class Item extends Agent {
     private String name;
     private int price;
     public Item(int AgentID, String name, int price){

@@ -3,7 +3,7 @@ import java.util.ArrayList;
  * Models a customer
  */
 public class User extends Agent{
-    private String name;
+    private final String name;
 
     User(int AgentID, String name){
         super(AgentID);

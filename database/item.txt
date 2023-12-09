@@ -1,2 +1,2 @@
 2
-	1	Americano	45	false	1		2	Latte	200	true	3	
+	1	Americano	2	true	2		2	Stryker	2	4500	Claw	

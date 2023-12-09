@@ -7,19 +7,17 @@ import java.util.Scanner;
 
 
 public final class StoreFrontImplementation implements StoreFront {
-
     private final ArrayList<Item> itemsList;
     private final ArrayList<Receipt> receiptsList;
     private final ArrayList<User> usersList;
     private static int nextID = 1;
 
+    //constructor 
     public StoreFrontImplementation(){
         this.usersList = new ArrayList<User>();
         this.itemsList = new ArrayList<Item>();
         this.receiptsList = new ArrayList<Receipt>();
     }
-    
-
     
     /** 
      * Purchases Item and creates receipt
@@ -79,7 +77,6 @@ public final class StoreFrontImplementation implements StoreFront {
         result = true;
         return result;
     }
-
 
     /**
      * Adds new Coffee to items list
@@ -155,12 +152,10 @@ public final class StoreFrontImplementation implements StoreFront {
         PrintWriter receiptsPrintWriter;
         PrintWriter itemPrintWriter;
         PrintWriter userPrintWriter;
-
         try {
             receiptsPrintWriter = new PrintWriter(receiptFileName, StandardCharsets.UTF_8);
             itemPrintWriter = new PrintWriter(itemFileName, StandardCharsets.UTF_8);
             userPrintWriter = new PrintWriter(userFileName, StandardCharsets.UTF_8);
-
             receiptsPrintWriter.println(this.receiptsList.size());
             for (int index = 0; index < this.receiptsList.size(); index++){
                 Receipt _receipt = this.receiptsList.get(index);
@@ -179,11 +174,9 @@ public final class StoreFrontImplementation implements StoreFront {
                 String data = _user.toString();
                 userPrintWriter.print(data);
             }
-
             receiptsPrintWriter.close();
             itemPrintWriter.close();
             userPrintWriter.close();
-            
             result = true;
         }
         catch (Exception e){
@@ -256,7 +249,8 @@ public final class StoreFrontImplementation implements StoreFront {
                 int itemSize = scanner.nextInt();
                 
                 for (int index = 0; index < itemSize; index++){
-                    Item newItem;
+                    Crowbar newCrowbar;
+                    Coffee newCofffee;
                     int itemID = scanner.nextInt();
                     String itemName = scanner.next();
                     int itemprice = scanner.nextInt();
@@ -266,14 +260,15 @@ public final class StoreFrontImplementation implements StoreFront {
                     if (scanner.hasNextBoolean()){    //if its coffee it will have boolean milk
                         boolean coffeeMilk = scanner.nextBoolean();
                         int coffeeSugarySpoons = scanner.nextInt();
-                        newItem = new Coffee(itemID, itemprice, itemName, coffeeMilk, coffeeSugarySpoons);
+                        newCofffee = new Coffee(itemID, itemprice, itemName, coffeeMilk, coffeeSugarySpoons);
+                        this.itemsList.add(newCofffee);
                     }
                     else { //its a crowbar
                         int crowbarWeight = scanner.nextInt();
                         String crowbarType = scanner.next();
-                        newItem = new Crowbar(itemID, itemprice, itemName, crowbarWeight, crowbarType);
+                        newCrowbar = new Crowbar(itemID, itemprice, itemName, crowbarWeight, crowbarType);
+                        this.itemsList.add(newCrowbar);
                     }
-                    this.itemsList.add(newItem);
                 }
             }
             scanner.close();

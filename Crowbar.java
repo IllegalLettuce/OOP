@@ -2,8 +2,8 @@
  * Class to model a crowbar
  */
 public class Crowbar extends Item{
-    private int weight;
-    private String type;
+    private final int weight;
+    private final String type;
     
     /**
      * Creates a new Crowbar Object

@@ -1,5 +1,4 @@
 public interface StoreFront {
-
     /**
      * Purchases Item
      * @param userID - ID of user
